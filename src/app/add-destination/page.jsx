@@ -12,9 +12,9 @@ const AddDestinationPage =() => {
 
 
         const {data:tokenData} = await authClient.token();
-        console.log(tokenData)
+      
 
-        const res = await fetch(`${process.env.SERVER_API_URL}/destination`,{
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/destination`,{
             method: "POST",
             headers: {'content-type': 'application/json',
                 authorization: `Bearer ${tokenData?.token}`

@@ -7,7 +7,7 @@ const CancelBooking = ({bookingId}) => {
   const router = useRouter()
   const handleCancel = async()=>{
     const {data:tokenData} = await authClient.token()
-      const res = await fetch(`${process.env.SERVER_API_URL}/${bookingId}`,{
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/${bookingId}`,{
         method: 'DELETE',
         headers:{ authorization: `Bearer ${tokenData?.token}`}
       })

@@ -25,7 +25,7 @@ const handleBooking = async()=>{
     // check user login token
     const {data:tokenData} = await authClient.token()
 
-  const res = await fetch(`${process.env.SERVER_API_URL}/booking`,{
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/booking`,{
     method: 'POST',
     headers: {'content-type': 'application/json',
         authorization: `Bearer ${tokenData?.token}`
@@ -33,7 +33,7 @@ const handleBooking = async()=>{
     body: JSON.stringify(booking)
   })
   const data = await res.json()
-  console.log(data)
+
   
   if(data.acknowledged){
     alert('Booking Success');
