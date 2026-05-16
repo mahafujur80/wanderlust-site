@@ -3,6 +3,7 @@
 
 import { authClient } from "@/lib/auth-client";
 import { Button, Select, FieldError, Input, Label, ListBox, Modal, Surface, TextArea, TextField } from "@heroui/react";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 export  function EditModal({destination}) {
@@ -25,6 +26,7 @@ export  function EditModal({destination}) {
             const data = await res.json()
             if(data.acknowledged){
                 alert("Update success");
+                revalidatePath('/destination')
                 redirect(`/destination/${_id}`)
             }}
 
