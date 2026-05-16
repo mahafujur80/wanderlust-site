@@ -12,7 +12,7 @@ const DetailsPage = async({params}) => {
     
 
     const {id} = await params;
-    const res = await fetch(`${process.env.SERVER_API_URL}/destination/${id}`,{
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/destination/${id}`,{
         headers:{
            authorization: `Bearer ${token}`
         }
