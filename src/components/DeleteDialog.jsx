@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 export function DeleteDialog({ destination }) {
     const handleDelete = async () => {
         const {data:tokenData} = await authClient.token()
-        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/${destination._id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/destination/${destination._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${tokenData?.token}`
